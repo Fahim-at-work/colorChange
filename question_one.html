@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <style>
+        body {
+            background-color: yellow;
+        }
+        
+        div {
+            padding: 12%;
+            color: blue;
+            font-size: 50px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body id="colorpad">
+    <div>
+        <h1 id="countdown">10
+        </h1>
+    </div>
+
+
+
+    <script>
+        var timeleft = 9;
+        var downloadTimer = setInterval(function() {
+            if (timeleft <= 0) {
+                clearInterval(downloadTimer);
+                document.getElementById("countdown").innerHTML = "Take Off";
+            } else {
+                document.getElementById("countdown").innerHTML = timeleft;
+            }
+            timeleft -= 1;
+
+
+
+        }, 1000);
+
+
+        function random_bg_color() {
+            var x = Math.floor(Math.random() * 256);
+            var y = Math.floor(Math.random() * 256);
+            var z = Math.floor(Math.random() * 256);
+            var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+
+
+            document.body.style.background = bgColor;
+
+        }
+
+
+
+
+        var time_count = 9;
+        var random_color = setInterval(function() {
+
+            if (time_count <= 0) {
+                clearInterval(random_color);
+                random_bg_color();
+            } else {
+                random_bg_color();
+            }
+            time_count -= 1;
+
+        }, 1000);
+    </script>
+
+</body>
+
+</html>
